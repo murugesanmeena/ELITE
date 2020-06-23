@@ -1,0 +1,29 @@
+The program must accept n integers from 1 to N in  any order as the input.
+The program must print the minimum numbers of swaps required to order those n intengers in descending order as output.
+
+import java.util.*;
+public class Hello{
+    public static void main(String args[]){
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       int a[]=new int[n+1];
+       for(int i=n;i>=0;i--) a[i]=sc.nextInt();
+       boolean v[]=new boolean[n+1];
+       int totalswaps=0;
+       for(int i=1;i<n+1;i++){
+         if(v[a[i]]) continue;
+         if(a[i]==i){
+           v[a[i]]=true;
+           continue;
+         }
+         int edges=0,cycle=i;
+         while(!v[a[cycle]]){
+            v[a[cycle]]=true;
+            edges++;
+            cycle=a[cycle];
+         }
+         totalswaps+=edges-1;
+       }
+       System.out.println(totalswaps);
+    }
+}
