@@ -1,0 +1,31 @@
+/* the program must rotate the array by shifting it R times*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void reverse(int a[],int i,int j){
+  while(i<j){
+   int temp=a[i];
+   a[i]=a[j];
+   a[j]=temp;
+   i++;
+   j--;
+  }
+}
+
+void rotate(int a[],int n, int r){
+  r=r%n;
+  reverse(a,0,n-1);  // reverse the entire array
+  reverse(a,0,r-1); //reverse the array until the specified position
+  reverse(a,r,n-1); //reverse the remaining array
+}
+
+int main(){
+  int n,r;
+  scanf("%d",&n);
+  int a[n];
+  for(int i=0;i<n;i++) scanf("%d ",&a[i]);
+  scanf("%d",&r);
+  rotate(a,n,r);
+  for(int i=0;i<n;i++) printf("%d ",a[i]);
+}
