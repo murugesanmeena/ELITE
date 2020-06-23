@@ -13,7 +13,7 @@ void reverse(int a[],int i,int j){
   }
 }
 
-void reverse(int a[],int n, int r){
+void rotate(int a[],int n, int r){
   r=r%n;
   reverse(a,0,n-1);  // reverse the entire array
   reverse(a,0,n-r-1); //reverse the array until the specified position
