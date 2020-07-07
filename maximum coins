@@ -1,0 +1,39 @@
+import java.util.*;
+
+Class Main(){
+  public static void main(){
+     Scanner sc=new Scanner(System.in);
+     int t=sc.nextInt();
+     while(t-- > 0){
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int m[][]=new int[r][c];
+        for(int i=0;i<r;i++){
+          for(int j=0;j<c;j++){
+            m[i][j]=sc.nextInt();
+          }
+        }
+        int dp[][]=new int[r][c];
+        for(int j=0;j<c;j++) dp[0][j]=m[0][j];
+        for(inti=1;i<r;i++){
+          int p[]=Arrays.copyOf(dp[i-1],c);
+          Arrays.sort(p);
+          int f=p[c-1];
+          int s=p[c-2];
+          for(int j=0;j<c;j++){
+            if(d[i-1][j]!=f) d[i][j]=f+m[i][j];
+            else d[i][j]=s+m[i][j];
+          }
+         }
+         Arrays.sort(dp[r-1]);
+         System.out.println(dp[r-1][c-1]);
+       }
+       
+       
+       input:
+           1
+           4 4
+           20 10 100 120
+           200 60 70 400
+           60 70 120 900
+           500 60 70 130
